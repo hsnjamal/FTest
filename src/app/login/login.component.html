@@ -1,0 +1,28 @@
+<form >
+  <div class="imgcontainer">
+    <img src="../../assets/images/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+
+    <label for="fname"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="fname"  [(ngModel)]="user.firstName" >
+
+    <label for="lname"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lname"  [(ngModel)]="user.lastName" >
+
+
+    <label for="uname"><b>Email</b></label>
+    <input type="text" placeholder="Enter Username" name="uname"  [(ngModel)]="user.email" (ngModelChange)  = validateEmail($event) >
+    <p style="color:red" *ngIf="errorMsg"> {{errorMsg}} </p>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw"  [(ngModel)]="user.password">
+    <p style="color:red" *ngIf="passError"> {{messages.passError}} </p>
+
+   <button *ngIf = "error" (click)="signUp()">Sign up</button>
+   
+  </div>
+  
+ 
+</form>
